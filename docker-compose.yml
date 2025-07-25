@@ -1,0 +1,82 @@
+version: "3.9"
+services:
+
+  # 🧠 Home Assistant - Core smart home platform
+  homeassistant:
+    container_name: homeassistant-main
+    image: homeassistant/home-assistant:latest
+    restart: unless-stopped
+    privileged: true
+    network_mode: host  # Enables device discovery (e.g. Chromecast, mDNS, etc.)
+    environment:
+      - TZ=UTC  # Set your timezone (e.g., UTC, America/New_York, Europe/London)
+    volumes:
+      - ./homeassistant_config:/config  # Persistent Home Assistant config
+      - /run/dbus:/run/dbus:ro  # Required for Bluetooth/mDNS
+    devices:
+      - "/dev/hci0"  # (Linux-only) Enables Bluetooth for presence/matter detection
+
+  # 🗣️ Whisper - Speech-to-text (STT) engine with GPU support
+  whisper:
+    image: ghcr.io/slackr31337/wyoming-whisper-gpu:latest
+    container_name: whisper
+    restart: unless-stopped
+    environment:
+      - MODEL=small-int8         # You can change to medium, large, etc. 
+      - LANGUAGE=en              # Language of recognition
+      - COMPUTE_TYPE=int8        # Optimized for low VRAM
+      - BEAM_SIZE=5              # Controls inference accuracy vs speed
+    ports:
+      - "10300:10300"  # Exposes API for HA STT service
+    volumes:
+      - ./whisper-data:/data  # Stores model files and cache
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: ["gpu", "utility", "compute"]  # Enables GPU acceleration
+
+  # 🔊 Piper - Text-to-speech (TTS) engine with GPU support
+  piper:
+    image: rhasspy/wyoming-piper:latest
+    container_name: piper
+    restart: unless-stopped
+    command: --voice en_US-ryan-medium  # Change to your preferred voice
+    environment:
+      - PIPER_RUNTIME=cuda  # Enables CUDA (GPU) runtime
+    ports:
+      - "10200:10200"  # Exposes API for HA TTS service
+    volumes:
+      - ./piper-data:/data  # Stores voice models and cache
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: ["gpu", "utility", "compute"]
+
+  # 🔔 OpenWakeWord - Optional custom wake word detection service
+  # ⚠️ NOT used by Home Assistant Voice Preview (PE) — that uses on-device microWakeWord instead. Included for possible future proofing.
+  # ✅ Useful for ESP32-S3 voice satellites (like M5Stack ATOM Echo or S3-BOX-3) to stream wake word audio to HA.
+  # 💡 You can train or download .tflite models and place them in ./wakeword-data to enable custom triggers.
+  openwakeword:
+    image: rhasspy/wyoming-openwakeword
+    container_name: openwakeword
+    restart: unless-stopped
+    command: --custom-model-dir /data  # Loads custom .tflite wake word models
+    ports:
+      - "10400:10400"  # Exposes wake word detection API to HA
+    volumes:
+      - ./wakeword-data:/data  # Mount folder where your models live
+    environment:
+      - ENABLE_SPEEX_NOISE_SUPPRESSION=true  # Reduces ambient noise before detection
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: ["gpu", "utility", "compute"]
