@@ -43,7 +43,7 @@ services:
     image: rhasspy/wyoming-piper:latest
     container_name: piper
     restart: unless-stopped
-    command: --voice en_US-ryan-medium  # Change to your preferred voice
+    command: --voice en_US-ryan-medium  # Change to your preferred voice within HA GUI
     environment:
       - PIPER_RUNTIME=cuda  # Enables CUDA (GPU) runtime
     ports:
