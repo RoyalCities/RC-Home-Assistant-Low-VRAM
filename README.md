@@ -46,8 +46,8 @@ Note:
 
 1. Clone this repo:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-   cd YOUR_REPO
+   git clone https://github.com/RoyalCities/RC-Home-Assistant-Low-VRAM.git
+   cd RC-Home-Assistant-Low-VRAM
    ```
 
 2. Start everything:
@@ -137,7 +137,7 @@ Including `openwakeword` future-proofs your setup for advanced use cases, but it
 ## 🧼 Customization & Notes
 
 - You can change the Whisper model size (`tiny`, `small`, `medium`) via the `MODEL=` environment variable. The default model I have set up is perfectly capable and ensures minimal VRAM hit but feel free to try different ones.
-- Piper supports multiple voice presets — I set a default one for the `--voice` argument you can change this within the HA GUI itself.
+- Piper supports multiple voice presets — I set a default one for the `--voice` argument you change this within the HA GUI itself.
 - Feel free to remove services you don’t need (e.g., `openwakeword`) by commenting them out in `docker-compose.yml`.
 
 ---
