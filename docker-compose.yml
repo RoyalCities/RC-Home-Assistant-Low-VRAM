@@ -1,7 +1,7 @@
 version: "3.9"
 services:
 
-  # 🧠 Home Assistant - Core smart home platform
+  # Home Assistant - Core smart home platform
   homeassistant:
     container_name: homeassistant-main
     image: homeassistant/home-assistant:latest
@@ -16,7 +16,7 @@ services:
     devices:
       - "/dev/hci0"  # (Linux-only) Enables Bluetooth for presence/matter detection
 
-  # 🗣️ Whisper - Speech-to-text (STT) engine with GPU support
+  # Whisper - Speech-to-text (STT) engine with GPU support
   whisper:
     image: ghcr.io/slackr31337/wyoming-whisper-gpu:latest
     container_name: whisper
@@ -38,7 +38,7 @@ services:
               count: all
               capabilities: ["gpu", "utility", "compute"]  # Enables GPU acceleration
 
-  # 🔊 Piper - Text-to-speech (TTS) engine with GPU support
+  # Piper - Text-to-speech (TTS) engine with GPU support
   piper:
     image: rhasspy/wyoming-piper:latest
     container_name: piper
@@ -58,10 +58,10 @@ services:
               count: all
               capabilities: ["gpu", "utility", "compute"]
 
-  # 🔔 OpenWakeWord - Optional custom wake word detection service
-  # ⚠️ NOT used by Home Assistant Voice Preview (PE) — that uses on-device microWakeWord instead. Included for possible future proofing.
-  # ✅ Useful for ESP32-S3 voice satellites (like M5Stack ATOM Echo or S3-BOX-3) to stream wake word audio to HA.
-  # 💡 You can train or download .tflite models and place them in ./wakeword-data to enable custom triggers.
+  # OpenWakeWord - Optional custom wake word detection service
+  # NOT used by Home Assistant Voice Preview (PE) — that uses on-device microWakeWord instead. Included for possible future proofing.
+  # Useful for ESP32-S3 voice satellites (like M5Stack ATOM Echo or S3-BOX-3) to stream wake word audio to HA.
+  # You can train or download .tflite models and place them in ./wakeword-data to enable custom triggers.
   openwakeword:
     image: rhasspy/wyoming-openwakeword
     container_name: openwakeword
