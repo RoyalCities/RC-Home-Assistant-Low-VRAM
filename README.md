@@ -142,6 +142,43 @@ Including `openwakeword` future-proofs your setup for advanced use cases, but it
 
 ---
 
+## ⚠️ Ollama Required (External)
+
+This stack assumes **Ollama is installed and running locally on your host machine**, **outside of Docker**.
+
+> Ollama is not included in this Compose stack.
+
+Make sure Ollama is running and listening on `http://localhost:11434` before starting Home Assistant.  
+You will also need to configure your preferred AI model manually within Home Assistant under **Settings → Voice Assistants → LLM Settings**.
+
+- [🔗 Get Ollama](https://ollama.com)
+- [📖 Ollama Docs](https://ollama.com/library)
+
+---
+
+## 📚 Advanced Features & Guides
+
+Once you're up and running, you can add advanced voice features:
+
+### 🧠 Persistent Memory (Short‑ & Long‑Term)
+
+Add memory to your assistant — it can remember facts you tell it (*“remember that my birthday is January 1st”*) and log recent actions (*“I launched YouTube on the TV”*) for smarter context.
+
+- [🧠 View the Persistent Memory Guide ›](https://github.com/RoyalCities/RC-Home-Assistant-Low-VRAM/blob/main/AI-Persistent-Memory.md)
+
+### 🔁 Multi-Turn Voice: Vocal Daisy Chaining
+
+Add natural follow-up support. For example:
+
+> “Turn on the TV.”  
+> “The TV is now on. Would you like to open an app?”
+
+- [🔁 View the Daisy Chaining Guide ›](https://github.com/RoyalCities/RC-Home-Assistant-Low-VRAM/blob/main/Vocal-Command-Daisy-Chaining.md)
+
+> 💡 These modules work independently — but together, they create a true multi-turn, memory-capable voice assistant.
+
+---
+
 ## 📄 License
 
 MIT License for code. Any media/design content is CC-BY 4.0 unless noted otherwise.
