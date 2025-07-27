@@ -1,4 +1,4 @@
-# Vocal Daisy Chaining for Home Assistant Assist
+# Vocal Daisy Chaining for Home Assistant 
 
 This guide explains how to enable simple voice daisy chaining using Home Assistant's Assist. After completing a command, the assistant can prompt for additional input (e.g., "Want me to do anything else?") and keep listening for a short time. This allows you to chain multiple commands together naturally.
 
