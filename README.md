@@ -153,7 +153,7 @@ You will also need to configure your preferred AI model manually within Home Ass
 
 - [🔗 Get Ollama](https://ollama.com)
 - [📖 Ollama models](https://ollama.com/library)
-- [📘 Recommended Models + Low VRAM Settings ›](https://github.com/RoyalCities/RC-Home-Assistant-Low-VRAM/blob/main/Ollama-Model-Recommendations.md)
+- [📘 Recommended Models + Low VRAM Settings](https://github.com/RoyalCities/RC-Home-Assistant-Low-VRAM/blob/main/Ollama-Model-Recommendations.md)
 
 > 💡 My model recommendations include a 4-bit quantized model that fits the entire stack within ~9GB of VRAM — ideal for local GPU setups.
 
