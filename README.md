@@ -113,7 +113,7 @@ Home Assistant uses host networking to enable local discovery (e.g., mDNS, SSDP,
 
 ## 🔔 Wake Word Support (OpenWakeWord vs Voice PE)
 
-This stack includes [`openwakeword`](https://github.com/davidchatting/openWakeWord) to support **custom wake words**, using `.tflite` models trained or downloaded locally.
+This stack includes [`openwakeword`](https://github.com/dscripka/openWakeWord) to support **custom wake words**, using `.tflite` models trained or downloaded locally.
 
 ### 🧠 When to Use It
 
