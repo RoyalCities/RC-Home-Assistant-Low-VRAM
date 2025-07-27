@@ -149,7 +149,7 @@ This stack assumes **Ollama is installed and running locally on your host machin
 > Ollama is not included in this Compose stack.
 
 Make sure Ollama is running and listening on `http://localhost:11434` before starting Home Assistant.  
-You will also need to configure your preferred AI model manually within Home Assistant under **Settings → Voice Assistants → LLM Settings**.
+You will also need to configure your preferred AI model manually within Home Assistant under **Settings → Voice Assistants → Assist → Conversation Agent**.
 
 - [🔗 Get Ollama](https://ollama.com)
 - [📖 Ollama models](https://ollama.com/library)
