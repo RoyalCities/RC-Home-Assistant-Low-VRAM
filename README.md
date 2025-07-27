@@ -4,9 +4,9 @@
 > If you are installing Home Assistant or its components outside Docker (e.g., via Home Assistant OS, Supervised, or Python virtualenv),  
 > please refer to the official documentation instead: [Getting Started with Home Assistant](https://www.home-assistant.io/getting-started/)
 
-This repo contains a self-hosted voice assistant stack that runs entirely on your machine — no cloud required, no subscriptions, and no surveillance.
+This repo contains a self-hosted voice assistant stack that runs entirely on your machine - no cloud required, no subscriptions, and no surveillance.
 
-It uses Docker Compose to orchestrate services like Home Assistant, Whisper for speech recognition, Piper for text-to-speech, and OpenWakeWord for wake word detection. Each service is GPU-accelerated for fast, low-latency voice interaction.
+It uses Docker Compose to orchestrate services like Home Assistant, Whisper for speech recognition, Piper for text-to-speech, and OpenWakeWord for wake word detection. Each service is GPU-accelerated for fast, low-latency voice interaction. This stack assumes you currently have Ollama installed locally - See section below on Ollama for further details.
 
 ---
 
