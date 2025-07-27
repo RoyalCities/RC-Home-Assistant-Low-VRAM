@@ -152,8 +152,9 @@ Make sure Ollama is running and listening on `http://localhost:11434` before sta
 You will also need to configure your preferred AI model manually within Home Assistant under **Settings → Voice Assistants → LLM Settings**.
 
 - [🔗 Get Ollama](https://ollama.com)
-- [📖 Ollama Docs](https://ollama.com/library)
+- [📖 Ollama models](https://ollama.com/library)
 
+My model recommendation and further low-vram settings can be found here.
 ---
 
 ## 📚 Advanced Features & Guides
