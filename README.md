@@ -154,7 +154,7 @@ You will also need to configure your preferred AI model manually within Home Ass
 - [🔗 Get Ollama](https://ollama.com)
 - [📖 Ollama models](https://ollama.com/library)
 
-My model recommendation and further low-vram settings can be found here.
+
 ---
 
 ## 📚 Advanced Features & Guides
